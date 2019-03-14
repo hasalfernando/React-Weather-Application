@@ -1,22 +1,25 @@
 import React from "react";
+import Titles from "./components/Titles"
+import Form from "./components/Form"
+import Weather from "./components/Weather"
 import './App.css';
 
+
+const API_KEY = "***your key here***";
+
 class App extends React.Component {
-  render() {
+  getWeather = async () => {
+    const api_call = await fetch('***your data link here***');
+    const data = await api_call.json();
+  }
+  
+    render() {
     return (
       <div className="App">
         <header className="App-header">
-          <p>
-            Hasal The Greatest
-          </p>
-          <a
-            className="App-link"
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Go to Youtube
-          </a>
+            <Titles/>
+            <Form/>
+            <Weather/>
         </header>
       </div>
     );
