@@ -25,7 +25,7 @@ class App extends React.Component {
     const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
     const data = await api_call.json();
     console.log(data);
-    
+
     this.setState({
       temperature: data.main.temp,
       city: data.name,
@@ -41,7 +41,14 @@ class App extends React.Component {
         <header className="App-header">
             <Titles/>
             <Form getWeather={this.getWeather}/>
-            <Weather/>
+            <Weather 
+            temperature={this.state.temperature}
+            city={this.state.city}
+            country={this.state.country}
+            humidity={this.state.humidity}
+            description={this.state.description}
+            error={this.state.error}
+            />
         </header>
       </div>
     );
